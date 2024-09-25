@@ -14,15 +14,15 @@ class TurboSmsApi
 
     protected $baseUri = 'https://api.turbosms.ua/';
 
-    public function __construct($apiToken, $sender, $isTest)
+    public function __construct($apiToken, $sender, array $configs = [])
     {
         $this->apiToken = $apiToken;
         $this->smsSender = $sender;
-        $this->isTest = $isTest;
-
+        $this->isTest = $configs['is_test'] ?? false;
+        
         $this->client = new HttpClient([
-            'timeout' => 5,
-            'connect_timeout' => 5,
+            'timeout' => intval($configs['timeout'] ?? 15),
+            'connect_timeout' => intval($configs['connect_timeout'] ?? 10),
         ]);
     }
 

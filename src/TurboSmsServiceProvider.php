@@ -14,9 +14,9 @@ class TurboSmsServiceProvider extends ServiceProvider
         $this->app->singleton(TurboSmsApi::class, function ($app) {
             $apiToken = $this->app['config']['services.turbosms.api_token'];
             $sender = $this->app['config']['services.turbosms.sender'];
-            $isTest = $this->app['config']['services.turbosms.is_test'];
-            $client = new TurboSmsApi($apiToken, $sender, $isTest);
-
+      
+            $client = new TurboSmsApi($apiToken, $sender, $this->app['config']['services.turbosms']);
+            
             return $client;
         });
     }

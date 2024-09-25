@@ -6,9 +6,6 @@ https://laravel.com/docs/master/notifications
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/fomvasss/laravel-notification-channel-turbo-sms.svg?style=flat-square)](https://packagist.org/packages/fomvasss/laravel-notification-channel-turbo-sms)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/fomvasss/laravel-notification-channel-turbo-sms/master.svg?style=flat-square)](https://travis-ci.org/fomvasss/laravel-notification-channel-turbo-sms)
-[![StyleCI](https://styleci.io/repos/:style_ci_id/shield)](https://styleci.io/repos/:style_ci_id)
-[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/:sensio_labs_id.svg?style=flat-square)](https://insight.sensiolabs.com/projects/:sensio_labs_id)
 [![Quality Score](https://img.shields.io/scrutinizer/g/fomvasss/laravel-notification-channel-turbosms.svg?style=flat-square)](https://scrutinizer-ci.com/g/fomvasss/laravel-notification-channel-turbosms)
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/fomvasss/laravel-notification-channel-turbosms/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/fomvasss/laravel-notification-channel-turbosms/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/fomvasss/laravel-notification-channel-turbo-sms.svg?style=flat-square)](https://packagist.org/packages/fomvasss/laravel-notification-channel-turbo-sms)
@@ -54,8 +51,12 @@ Add your TurboSms token, default sender name (or phone number), test mode to you
 ...
 'turbosms' => [
     'api_token'  => env('TURBOSMS_API_TOKEN'),
-    'sender'  => env('TURBOSMS_SENDER'),
+    'sender'  => env('TURBOSMS_SENDER'),        // for test sending use TAXI 
     'is_test'  => env('TURBOSMS_IS_TEST'),
+    
+    // optional
+    'timeout'  => env('TURBOSMS_TIMEOUT'),
+    'connect_timeout'  => env('TURBOSMS_CONNECT_TIMEOUT'),
 ],
 ...
 ```
